@@ -1,29 +1,37 @@
 import React, { Component } from 'react';
 import './app_container.css';
-
+import TextArea from '../textarea';
+import MarkdownPreview from '../markdown_preview';
 import marked from 'marked';
 
 class AppContainer extends Component {
   constructor() {
     super();
+
+    this.state = {
+      markdown: ''
+    }
   }
 
-  _rawMarkup(value) {
-    let rawMarkup = marked(value, { sanitze: true });
-    return { __html: rawMarkup }
+  onTextChange(e) {
+    this.setState({
+      markdown: e.target.value
+    });
+  }
+
+  rawMarkdown() {
+    let rawMarkdown = marked(this.state.markdown, { sanitze: true });
+    return { __html: rawMarkdown }
   }
 
   render() {
     return (
-      <div className="App">
-        <span dangerouslySetInnerHTML={this._rawMarkup('# Test')} />
+      <div className="app-container">
+        <TextArea onTextChange={this.onTextChange.bind(this)} value={this.state.markdown} />
+        <MarkdownPreview markdown={this.rawMarkdown.bind(this)} />
       </div>
     );
   }
 }
-
-// render()
-// <TextArea />
-// <MarkdownPreview />
 
 export default AppContainer;
