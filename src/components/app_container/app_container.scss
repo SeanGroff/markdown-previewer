@@ -1,0 +1,27 @@
+html, body, #root, .app-container {
+  height: 100%;
+  background-color: #303030;
+}
+
+.row {
+  height: 90%;
+}
+
+body {
+  padding: 0;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 15px; 
+  background-color: #691A99; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+
+  h2 {
+    color: #F9F9F9;
+    margin: 0;
+  }
+}

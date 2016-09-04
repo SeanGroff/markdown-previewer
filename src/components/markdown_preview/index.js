@@ -2,7 +2,11 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <span
-      dangerouslySetInnerHTML={props.markdown()} />
+    <div className='col-sm-6'>
+      <span
+        dangerouslySetInnerHTML={props.markdown() }
+        style={{color: '#68EFAD'}}
+        />
+    </div>
   );
 }
